@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { fontSans, fontHeading } from "@/lib/fonts";
 import "./globals.css";
+
+import { fontSans, fontHeading } from "@/lib/fonts";
+import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} ${fontHeading.variable} antialiased`}
+        className={`${fontSans.variable} ${fontHeading.variable} font-sans antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
